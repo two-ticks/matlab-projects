@@ -1,0 +1,26 @@
+a_vec = [ ]; % vector including all possible a values 
+b_vec = [ ]; % vector including all possible a values 
+yfinal = …; % final value that you have calculated in (a) using the finalvalue theorem. 
+for ii=1:length(K_vec)
+ for jj=1:length(K_vec)
+ a = a_vec(ii); %
+ b = b_vec(ii); %
+
+ sim('yourSimuinkFileName.slx') % You simulate vector including the
+
+ S = stepinfo(yout, tout, yfinal)
+ PercentOveshoot_matrix(ii,jj) = … ;
+ SettlingTime_matrix(ii,jj) = … ;
+ end
+end
+
+X = 5; 
+K = 1;
+a = 0.2 + 0.025 * X * 5;
+b = 100 + 0.5 * X * 5;
+sim('IE474_O1_Task1_simulink_X.mdl')
+S = stepinfo(yout,tout,yout(end));
+figure, plot(tout,yout)
+grid
+disp(S.Overshoot);
+disp(S.SettlingTime);

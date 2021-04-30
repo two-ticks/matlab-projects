@@ -1,12 +1,12 @@
 Model {
-  Name			  "IE474_O1_Task2_simulink_X"
+  Name			  "IE474_O1_Task2_simulink_4"
   Version		  9.3
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.9"
+    ComputedModelVersion    "1.17"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -46,7 +46,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [252.0, 30.0, 781.0, 830.0]
+      Location		      [258.0, 1.0, 781.0, 830.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -73,7 +73,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[845.0, 824.0]
 	ZoomFactor		[0.8]
-	Offset			[-60.0, -88.200000000000216]
+	Offset			[-128.21811233401291, -19.733333333333917]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -111,9 +111,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Radium"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 29 18:43:49 2021"
-  RTWModifiedTimeStamp	  541621915
-  ModelVersionFormat	  "1.%<AutoIncrement:9>"
+  LastModifiedDate	  "Fri Apr 30 03:32:19 2021"
+  RTWModifiedTimeStamp	  541654327
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -169,12 +169,12 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "IE474_O1_Task2_simulink_X"
+    model_		    "IE474_O1_Task2_simulink_4"
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "IE474_O1_Task2_simulink_X"
+      Cell		      "IE474_O1_Task2_simulink_4"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1068,8 +1068,8 @@ Model {
     }
   }
   System {
-    Name		    "IE474_O1_Task2_simulink_X"
-    Location		    [252, 30, 1033, 860]
+    Name		    "IE474_O1_Task2_simulink_4"
+    Location		    [258, 1, 1039, 831]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1086,7 +1086,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "15"
+    SIDHighWatermark	    "17"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Gain
@@ -1095,6 +1095,17 @@ Model {
       Position		      [130, 260, 160, 290]
       ZOrder		      312
       Gain		      "K"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain1"
+      SID		      "17"
+      Position		      [-30, 260, 0, 290]
+      ZOrder		      315
+      Gain		      "0.1"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
@@ -1117,9 +1128,9 @@ Model {
       BlockType		      Step
       Name		      "Z_in"
       SID		      "14"
-      Position		      [-15, 260, 15, 290]
+      Position		      [-115, 260, -85, 290]
       ZOrder		      313
-      After		      "0.1"
+      Time		      "0"
       SampleTime	      "0"
     }
     Block {
@@ -1127,7 +1138,7 @@ Model {
       Name		      "Z_out"
       SID		      "4"
       Ports		      [1]
-      Position		      [655, 260, 715, 290]
+      Position		      [555, 260, 615, 290]
       ZOrder		      4
       VariableName	      "yout"
       MaxDataPoints	      "inf"
@@ -1149,17 +1160,17 @@ Model {
       ZOrder		      8
       SrcBlock		      "Zero-Pole"
       SrcPort		      1
-      Points		      [155, 0]
+      Points		      [39, 0]
       Branch {
-	ZOrder			5
-	Points			[0, 122; -540, 0]
-	DstBlock		"Sum"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			4
+	ZOrder			33
 	DstBlock		"Z_out"
 	DstPort			1
+      }
+      Branch {
+	ZOrder			5
+	Points			[0, 122; -424, 0]
+	DstBlock		"Sum"
+	DstPort			2
       }
     }
     Line {
@@ -1177,8 +1188,15 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      25
+      ZOrder		      28
       SrcBlock		      "Z_in"
+      SrcPort		      1
+      DstBlock		      "Gain1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      31
+      SrcBlock		      "Gain1"
       SrcPort		      1
       DstBlock		      "Sum"
       DstPort		      1

@@ -1,12 +1,12 @@
 Model {
-  Name			  "IE474_O1_Task1_simulink_X"
+  Name			  "IE474_O1_Task1_simulink_4"
   Version		  9.3
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.8"
+    ComputedModelVersion    "1.9"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -111,9 +111,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Radium"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 29 15:57:00 2021"
-  RTWModifiedTimeStamp	  541610929
-  ModelVersionFormat	  "1.%<AutoIncrement:8>"
+  LastModifiedDate	  "Fri Apr 30 12:01:25 2021"
+  RTWModifiedTimeStamp	  541684874
+  ModelVersionFormat	  "1.%<AutoIncrement:9>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -169,12 +169,12 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "IE474_O1_Task1_simulink_X"
+    model_		    "IE474_O1_Task1_simulink_4"
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "IE474_O1_Task1_simulink_X"
+      Cell		      "IE474_O1_Task1_simulink_4"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1068,7 +1068,7 @@ Model {
     }
   }
   System {
-    Name		    "IE474_O1_Task1_simulink_X"
+    Name		    "IE474_O1_Task1_simulink_4"
     Location		    [252, 30, 1033, 860]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1105,6 +1105,7 @@ Model {
       SID		      "14"
       Position		      [-25, 260, 5, 290]
       ZOrder		      313
+      Time		      "0"
       SampleTime	      "0"
     }
     Block {

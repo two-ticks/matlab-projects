@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.9"
+    ComputedModelVersion    "1.10"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -111,9 +111,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Radium"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 30 12:01:25 2021"
-  RTWModifiedTimeStamp	  541684874
-  ModelVersionFormat	  "1.%<AutoIncrement:9>"
+  LastModifiedDate	  "Sat May 08 09:37:00 2021"
+  RTWModifiedTimeStamp	  542366524
+  ModelVersionFormat	  "1.%<AutoIncrement:10>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1100,15 +1100,6 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Step
-      Name		      "Step"
-      SID		      "14"
-      Position		      [-25, 260, 5, 290]
-      ZOrder		      313
-      Time		      "0"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Sum
       Name		      "Sum"
       SID		      "5"
@@ -1134,6 +1125,15 @@ Model {
       Save2DSignal	      "2-D array (concatenate along first dimension)"
       FixptAsFi		      on
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Z_in"
+      SID		      "14"
+      Position		      [-25, 260, 5, 290]
+      ZOrder		      313
+      Time		      "0"
+      SampleTime	      "0"
     }
     Block {
       BlockType		      ZeroPole
@@ -1178,7 +1178,7 @@ Model {
     }
     Line {
       ZOrder		      22
-      SrcBlock		      "Step"
+      SrcBlock		      "Z_in"
       SrcPort		      1
       DstBlock		      "Sum"
       DstPort		      1

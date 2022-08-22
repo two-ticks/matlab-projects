@@ -19,7 +19,7 @@ N=10^5; %number of samples to generate
 fd= f_doppler; % Maximum doppler spread in hertz
 Ts=0.0001; % Sampling period in seconds
 x=(0:N-1)*Ts;
-initial_signal = 12*sin(5*x+2)+20*cos(5*10^3*x);
+initial_signal = 12*sin(5*x+2)+20*cos(50*x+23.3);
 figure;
 plot((0:N-1)*Ts, initial_signal);
 title('initial signal');
@@ -69,6 +69,11 @@ figure;
 plot((0:length(dif_crossing)-1)*Ts, dif_crossing);
 title('fade duration');
 
+hold on
+
+yline(mean(dif_crossing),'r')
+
+hold off
 
 % autocorrelation
 

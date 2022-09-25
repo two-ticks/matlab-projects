@@ -1,10 +1,8 @@
-%% hotfixed v1 14 September, 2022  
+%% v1 19 September, 2022  
 % TODO : 
-% [ ] fix ergodic capacity -> mean should be replaced by expectation 
-% [ ] optimise SNR 
 % [ ] check for corner/test cases of SNR
-%     - [ ] truncated capacity > inversion
-%     - [ ] water filling > other capacities 
+%     - [x] truncated capacity > inversion
+%     - [x] water filling > other capacities 
 % [ ] title and labels for graphs 
 
 % clear 
@@ -66,7 +64,7 @@ for jj = 1:length(snrdB)                                   % loop over all snr
 p_sim(jj) = count/N;                                       % simulated probabilty
 p_ana(jj) = 1 - exp(-snrTh/snr).*(snrTh./snr+1);           % analytical outage probability 
 end
-figure
+figure 
 semilogy(snrdB, p_sim, 'b-', LineWidth=1); hold on; grid on; 
 semilogy(snrdB, p_ana, 'r +', LineWidth=1); grid on;
 hold off
@@ -116,18 +114,19 @@ for ii = 1:nOfsignalToNoiseRatio
     mean_capacity(ii) = mean(CapacityVec(ii,:));
 end
 
-figure
-x = (1:nOfsignalToNoiseRatio);
-y = CapacityVec(x,1);
-plot((1:nOfsignalToNoiseRatio), y ,'b'); hold on;
-
-% plot(snrdB, 1/5,'b'); hold on;
-hold off
+% figure
+% x = (1:nOfsignalToNoiseRatio);
+% y = CapacityVec(x,1);
+% plot((1:nOfsignalToNoiseRatio), y ,'b'); hold on;
+% 
+% % plot(snrdB, 1/5,'b'); hold on;
+% hold off
 
 figure 
 indices = find(signalToNoiseRatio<snrTh);
 signalToNoiseRatio(indices) = [];
 curve1 = 1./signalToNoiseRatio;
+
 
 plot(signalToNoiseRatio, curve1 ,'r'); hold on;
 curve2 =  1/snrTh*ones(1,length(signalToNoiseRatio));
@@ -136,6 +135,9 @@ x2 = [signalToNoiseRatio, fliplr(signalToNoiseRatio)];
 inBetween = [curve1, fliplr(curve2)];
 fill(x2, inBetween, 'g');
 axis([1 8 0 2])
+legend('1/SNR_{o}','1/SNR');
+title('1/SNR vs SNR');
+xlabel('SNR');ylabel('1/SNR');
 
 % truncated capacity
 %snr                         = signalToNoiseRatio;
